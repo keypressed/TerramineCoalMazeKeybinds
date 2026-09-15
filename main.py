@@ -28,6 +28,12 @@ def get_iphone_mirroring_window():
             }
     return None
 
+def darwin_intercept(event_type, event):
+    keycode = Quartz.CGEventGetIntegerValueField(event, Quartz.kCGKeyboardEventKeycode)
+    if keycode in (123, 124, 125, 126):
+        return None
+    return event
+
 # send a pyautogui click to the coordinates of the respective input arrow
 def press_key(direction):
     match direction:
@@ -99,6 +105,6 @@ def on_press(key):
                 else:
                     print(error_msg)
 
-listener = keyboard.Listener(on_press=on_press)
+listener = keyboard.Listener(on_press=on_press, darwin_intercept=darwin_intercept)
 listener.start()
 listener.join()
