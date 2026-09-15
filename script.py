@@ -81,7 +81,7 @@ def on_press(key):
                 print("6. 'r' - refreshes keybind locations (use this if you move the phone mirror)")
             case 'l':
                 print("Available keybinds: ")
-                print("arrow_down, arrow_left, arrow_up, arrow_right")
+                print("arrow_down, arrow_left, arrow_up, arrow_right, w, a, s, d")
             case 'q':
                 print("Quitting program")
                 return False
