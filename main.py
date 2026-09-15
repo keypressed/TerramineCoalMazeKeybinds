@@ -59,7 +59,18 @@ east_offset  = [166, 609]
 def on_press(key):
     global keybinds, window
     try:
+        error_msg = "keybinds are disabled - press 'h' for more info"
         match key.char:
+            case 'a':
+                if keybinds:
+                    press_key("west")
+                else:
+                    print(error_msg)
+            case 'd':
+                if keybinds:
+                    press_key("east")
+                else:
+                    print(error_msg)
             case 'h':
                 print("[----Commands----]")
                 print("1. 'h' - prints this help menu")
@@ -77,6 +88,16 @@ def on_press(key):
             case 'r':
                 window = get_iphone_mirroring_window()
                 print("refreshed keybind coordinates")
+            case 's':
+                if keybinds:
+                    press_key("south")
+                else:
+                    print(error_msg)
+            case 'w':
+                if keybinds:
+                    press_key("north")
+                else:
+                    print(error_msg)
             case '[':
                 keybinds = True
             case ']':
